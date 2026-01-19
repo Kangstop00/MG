@@ -7,21 +7,21 @@ const banners = [
     id: 1,
     title: "내 삶을 지켜주는\n든든한 파트너",
     desc: "언제나 회원님 곁에서 힘이 되어드리겠습니다.\nMG새마을금고보험과 함께 더 나은 내일을 준비하세요.",
-    image: "https://lh3.google.com/u/0/d/1BNW0wBKUdKDX1ZIz5zfSJQKP9bkd4UMI=w1665-h826-iv1?auditContext=prefetch",
+    image: "https://lh3.google.com/u/0/d/1BNW0wBKUdKDX1ZIz5zfSJQKP9bkd4UMI=w1668-h825-iv1?auditContext=prefetch",
     bgClass: "from-[#E3F2FD] via-[#F8FAFC] to-[#FFFFFF]" // Bright Pastel Blue
   },
   {
     id: 2,
     title: "우리아이의 꿈을\n응원합니다",
     desc: "성장 단계별 맞춤 보장으로\n소중한 자녀의 미래를 지켜드립니다.",
-    image: "https://lh3.google.com/u/0/d/1w9taHruUhKv3NWKcrU4z7dZNoorDxbV5=w1665-h826-iv1?auditContext=prefetch",
+    image: "https://lh3.google.com/u/0/d/10JSChnXQZIUOGQEiCZO6p0hom_zfL6FR=w1668-h825-iv1?auditContext=prefetch",
     bgClass: "from-[#D1E9FC] via-[#E6F4FF] to-[#FFFFFF]" // Pastel Blue
   },
   {
     id: 3,
     title: "건강한 100세\n시대를 위한 준비",
     desc: "노후 의료비 걱정 없는\n행복한 제2의 인생을 설계하세요.",
-    image: "https://lh3.google.com/u/0/d/1iDz1udZ8ZgRIQk2pCWDJiLkGxGJcmCG9=w906-h825-iv1?auditContext=prefetch",
+    image: "https://lh3.google.com/u/0/d/1jRuSft-aaZrMBYaJvMJy_reghxl4iZ3W=w1668-h825-iv1?auditContext=prefetch",
     bgClass: "from-[#E0F7FA] via-[#E1F5FE] to-[#FFFFFF]" // Bright Pastel Cyan
   }
 ];
@@ -51,8 +51,8 @@ const Hero: React.FC = () => {
   const togglePlay = () => setIsPlaying(!isPlaying);
 
   return (
-    // Increased padding: pt-32 mobile, pt-40 desktop to provide more whitespace top
-    <section className="relative pt-32 md:pt-40 pb-16 bg-white z-30">
+    // Increased top padding (pt-40 md:pt-48) for more spacing
+    <section className="relative pt-40 md:pt-48 pb-16 bg-white z-30 overflow-hidden">
       <style>
         {`
           @keyframes progress {
@@ -64,14 +64,14 @@ const Hero: React.FC = () => {
           }
         `}
       </style>
-      {/* Background Shape Layer - Width 53% on desktop, 100% height. */}
+      {/* Background Shape Layer */}
       <div className={`absolute top-0 right-0 w-[53%] h-full rounded-bl-[180px] transition-colors duration-1000 ease-in-out bg-gradient-to-br ${banners[currentSlide].bgClass} z-0`}></div>
 
       <div className="max-w-[1240px] mx-auto px-6 relative z-10">
         
         {/* Banner Container */}
         <div className="relative">
-           {/* Left: Banner Slider (Takes up approx 70% width) */}
+           {/* Left: Banner Slider */}
            <div className="w-full md:w-[70%] relative flex flex-col justify-center">
               
               <div className="relative h-[280px] w-full">
@@ -92,12 +92,12 @@ const Hero: React.FC = () => {
                           </p>
                         </div>
                         
-                        {/* Banner Image - Reduced size (w-[1500px] h-[125%]) and moved left (right-[40px]) */}
-                        <div className="hidden md:block absolute right-[40px] top-[55%] -translate-y-1/2 w-[1500px] h-[125%] z-10 pointer-events-none opacity-100 mix-blend-multiply">
+                        {/* Banner Image Area - Adjusted right position to move left */}
+                        <div className="hidden md:block absolute right-[-40px] top-[55%] -translate-y-1/2 w-[1100px] h-[110%] z-10 pointer-events-none">
                            <img 
                               src={banner.image} 
                               alt="" 
-                              className="w-full h-full object-contain object-right"
+                              className={`w-full h-full object-contain object-right mix-blend-multiply ${index === 0 ? 'scale-125 origin-right' : ''}`}
                            />
                         </div>
                     </div>
@@ -105,23 +105,20 @@ const Hero: React.FC = () => {
                 ))}
               </div>
 
-              {/* Navigator - Single Row Layout */}
+              {/* Navigator */}
               <div className="flex items-center gap-5 mt-10 relative z-20 w-fit">
-                 {/* 1. Numbers */}
                  <div className="flex items-center gap-2 font-eng font-medium text-xl text-gray-900 shrink-0">
                     <span className="text-primary font-bold">{String(currentSlide + 1).padStart(2, '0')}</span>
                     <span className="text-gray-400">/</span>
                     <span className="text-gray-400">{String(banners.length).padStart(2, '0')}</span>
                  </div>
 
-                 {/* 2. Progress Bar */}
                  <div className="w-[120px] h-[2px] bg-gray-200 rounded-full overflow-hidden shrink-0">
                     {isPlaying && (
                        <div key={currentSlide} className="h-full bg-primary animate-progress origin-left"></div>
                     )}
                  </div>
 
-                 {/* 3. Controls - Gray #9DA3AF, Filled Play/Pause (strokeWidth={0}), Stroked Chevrons (strokeWidth={2}) */}
                  <div className="flex items-center gap-1">
                     <button onClick={handlePrev} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50 text-[#9DA3AF] hover:text-gray-600 transition-colors">
                       <ChevronLeft size={20} strokeWidth={2} />
@@ -141,13 +138,13 @@ const Hero: React.FC = () => {
 
            </div>
 
-           {/* Right: Login Card - Moved up by changing bottom-0 to bottom-16 */}
+           {/* Right: Login Card */}
            <div className="hidden md:block absolute right-0 bottom-16 translate-y-1/2 z-30">
                 <LoginCard className="shadow-2xl" />
            </div>
         </div>
 
-        {/* Mobile: Login Card in flow with increased top margin (mt-16) */}
+        {/* Mobile: Login Card */}
         <div className="md:hidden mt-16 mb-4">
           <LoginCard />
         </div>
