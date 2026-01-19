@@ -5,12 +5,12 @@ export const LoginCard: React.FC<{ className?: string }> = ({ className = '' }) 
   return (
     <div className={`bg-white rounded-[32px] px-8 pb-8 pt-10 shadow-[0_20px_40px_rgba(0,0,0,0.08)] w-full md:w-[320px] flex flex-col h-[300px] relative overflow-visible ${className}`}>
        
-       {/* 3D Icon - Reduced size from w-28 to w-24 */}
-       <div className="absolute -top-12 -right-6 transform rotate-6 pointer-events-none animate-bounce-slow z-20">
+       {/* 3D Icon - Adjusted position to -right-6 to move it slightly left */}
+       <div className="absolute -top-14 -right-6 transform rotate-6 pointer-events-none animate-bounce-slow z-20">
           <img 
              src="https://lh3.google.com/u/0/d/1G7c8Lg5il9W6SeXSoRj3bW1pCPCrz8qS=w1640-h826-iv1?auditContext=prefetch"
              alt="Login Lock Icon"
-             className="w-24 h-auto" 
+             className="w-32 h-auto" 
           />
        </div>
 

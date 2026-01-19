@@ -51,8 +51,8 @@ const Hero: React.FC = () => {
   const togglePlay = () => setIsPlaying(!isPlaying);
 
   return (
-    // Increased top padding (pt-40 md:pt-48) for more spacing
-    <section className="relative pt-40 md:pt-48 pb-16 bg-white z-30 overflow-hidden">
+    // Section styles
+    <section className="relative pt-32 md:pt-40 pb-0 bg-white z-30 overflow-visible">
       <style>
         {`
           @keyframes progress {
@@ -64,13 +64,17 @@ const Hero: React.FC = () => {
           }
         `}
       </style>
-      {/* Background Shape Layer */}
-      <div className={`absolute top-0 right-0 w-[53%] h-full rounded-bl-[180px] transition-colors duration-1000 ease-in-out bg-gradient-to-br ${banners[currentSlide].bgClass} z-0`}></div>
+      
+      {/* Background Wrapper with Overflow Hidden to prevent scrollbars from background shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Background Shape Layer */}
+          <div className={`absolute top-0 right-0 w-[53%] h-full rounded-bl-[180px] transition-colors duration-1000 ease-in-out bg-gradient-to-br ${banners[currentSlide].bgClass} z-0`}></div>
+      </div>
 
       <div className="max-w-[1240px] mx-auto px-6 relative z-10">
         
         {/* Banner Container */}
-        <div className="relative">
+        <div className="relative pb-12 md:pb-16">
            {/* Left: Banner Slider */}
            <div className="w-full md:w-[70%] relative flex flex-col justify-center">
               
@@ -92,7 +96,7 @@ const Hero: React.FC = () => {
                           </p>
                         </div>
                         
-                        {/* Banner Image Area - Adjusted right position to move left */}
+                        {/* Banner Image Area */}
                         <div className="hidden md:block absolute right-[-40px] top-[55%] -translate-y-1/2 w-[1100px] h-[110%] z-10 pointer-events-none">
                            <img 
                               src={banner.image} 
@@ -139,13 +143,14 @@ const Hero: React.FC = () => {
            </div>
 
            {/* Right: Login Card */}
-           <div className="hidden md:block absolute right-0 bottom-16 translate-y-1/2 z-30">
+           {/* Move higher: changed bottom-16 to bottom-28. Keeps translate-y-1/2 to hang slightly. */}
+           <div className="hidden md:block absolute right-0 bottom-28 translate-y-1/2 z-50">
                 <LoginCard className="shadow-2xl" />
            </div>
         </div>
 
         {/* Mobile: Login Card */}
-        <div className="md:hidden mt-16 mb-4">
+        <div className="md:hidden mt-8 mb-4">
           <LoginCard />
         </div>
 

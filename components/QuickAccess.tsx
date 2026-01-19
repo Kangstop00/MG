@@ -15,16 +15,18 @@ const quickLinks: QuickLink[] = [
 const QuickAccess: React.FC = () => {
   return (
     <section className="bg-white relative">
-      {/* Adjusted padding: pt-20 (narrowed top gap from 36), pb-24 */}
+      {/* Reduced top padding to md:pt-20 to pull content up closer to the lifted Login Card */}
       <div className="max-w-[1240px] mx-auto px-6 py-12 md:pt-20 md:pb-24">
         
         <div className="flex flex-col">
             
-            {/* Header Area */}
-            <div className="w-full md:w-[70%] mb-12">
+            {/* Header Area - Left Side (65%) */}
+            <div className="w-full md:w-[65%] mb-12">
                 <AnimatedSection>
-                  <div className="flex items-center gap-2 mb-3 cursor-pointer group">
-                    <h2 className="text-3xl font-bold text-text-main group-hover:text-primary transition-colors">자주 찾는 서비스</h2>
+                  {/* Removed cursor-pointer and group classes */}
+                  <div className="flex items-center gap-2 mb-3">
+                    {/* Removed hover:text-primary class */}
+                    <h2 className="text-3xl font-bold text-text-main">자주 찾는 서비스</h2>
                   </div>
                   <p className="text-text-sub text-base">고객님들이 가장 많이 이용하시는 서비스입니다.</p>
                 </AnimatedSection>
