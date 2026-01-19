@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnimatedSection } from './ui/AnimatedSection';
+import { AnimatedSection } from './ui/AnimatedSection.tsx';
 import { Headphones, Smartphone, AlertTriangle, FileText, ArrowUpRight } from 'lucide-react';
 
 const CustomerSupport: React.FC = () => {

@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import QuickAccess from './components/QuickAccess';
-import CustomerSupport from './components/CustomerSupport';
-import Products from './components/Products';
-import SpecialProducts from './components/SpecialProducts';
-import InfoBanner from './components/InfoBanner';
-import Notice from './components/Notice';
-import News from './components/News';
-import Footer from './components/Footer';
-import FloatingButtons from './components/FloatingButtons';
+import Header from './components/Header.tsx';
+import Hero from './components/Hero.tsx';
+import QuickAccess from './components/QuickAccess.tsx';
+import CustomerSupport from './components/CustomerSupport.tsx';
+import Products from './components/Products.tsx';
+import SpecialProducts from './components/SpecialProducts.tsx';
+import InfoBanner from './components/InfoBanner.tsx';
+import Notice from './components/Notice.tsx';
+import News from './components/News.tsx';
+import Footer from './components/Footer.tsx';
+import FloatingButtons from './components/FloatingButtons.tsx';
 
 const App: React.FC = () => {
   return (

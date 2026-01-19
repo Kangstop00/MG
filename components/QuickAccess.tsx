@@ -1,7 +1,7 @@
 import React from 'react';
-import { AnimatedSection } from './ui/AnimatedSection';
+import { AnimatedSection } from './ui/AnimatedSection.tsx';
 import { FileText, Calculator, CreditCard, PieChart, Landmark } from 'lucide-react';
-import { QuickLink } from '../types';
+import { QuickLink } from '../types.ts';
 
 const quickLinks: QuickLink[] = [
   { id: '1', label: '보험금청구', icon: FileText },
@@ -33,7 +33,8 @@ const QuickAccess: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-6">
                 {/* Icons Grid - 6 items */}
                 <div className="w-full md:w-full">
-                    <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
+                    {/* Changed grid-cols-4 to grid-cols-3 for mobile (3 columns * 2 rows = 6 items) */}
+                    <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
                       {quickLinks.map((link, index) => (
                         <AnimatedSection key={link.id} delay={index * 50}>
                           <a 

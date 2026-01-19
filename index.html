@@ -138,9 +138,12 @@
   }
 }
 </script>
+<!-- Babel for on-the-fly JSX compilation -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <!-- Changed to text/babel with data-type="module" to support imports and JSX -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>

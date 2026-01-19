@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
-import LoginCard from './LoginCard';
+import LoginCard from './LoginCard.tsx';
 
 const banners = [
   {
@@ -51,7 +51,8 @@ const Hero: React.FC = () => {
   const togglePlay = () => setIsPlaying(!isPlaying);
 
   return (
-    <section className="relative pt-32 pb-16 bg-white z-30">
+    // Reduced padding on mobile (pt-24) to reduce white gap under GNB, PC keeps pt-32
+    <section className="relative pt-24 md:pt-32 pb-16 bg-white z-30">
       <style>
         {`
           @keyframes progress {
@@ -63,7 +64,7 @@ const Hero: React.FC = () => {
           }
         `}
       </style>
-      {/* Background Shape Layer - Width 53% */}
+      {/* Background Shape Layer - Width 53% on desktop, 100% height. */}
       <div className={`absolute top-0 right-0 w-[53%] h-full rounded-bl-[180px] transition-colors duration-1000 ease-in-out bg-gradient-to-br ${banners[currentSlide].bgClass} z-0`}></div>
 
       <div className="max-w-[1240px] mx-auto px-6 relative z-10">
@@ -83,10 +84,10 @@ const Hero: React.FC = () => {
                   >
                     <div className="flex items-center justify-between h-full relative">
                         <div className={`py-6 flex flex-col justify-center relative z-20`}>
-                          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-[1.2] mb-6 whitespace-pre-line tracking-wide">
+                          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-[1.2] mb-6 whitespace-pre-line tracking-wide">
                             {banner.title}
                           </h1>
-                          <p className="text-lg text-gray-600 leading-relaxed font-medium whitespace-pre-line">
+                          <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium whitespace-pre-line">
                             {banner.desc}
                           </p>
                         </div>
