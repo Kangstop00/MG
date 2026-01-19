@@ -51,8 +51,8 @@ const Hero: React.FC = () => {
   const togglePlay = () => setIsPlaying(!isPlaying);
 
   return (
-    // Reduced padding on mobile (pt-24) to reduce white gap under GNB, PC keeps pt-32
-    <section className="relative pt-24 md:pt-32 pb-16 bg-white z-30">
+    // Increased padding: pt-32 mobile, pt-40 desktop to provide more whitespace top
+    <section className="relative pt-32 md:pt-40 pb-16 bg-white z-30">
       <style>
         {`
           @keyframes progress {
@@ -147,8 +147,8 @@ const Hero: React.FC = () => {
            </div>
         </div>
 
-        {/* Mobile: Login Card in flow */}
-        <div className="md:hidden mt-8 mb-4">
+        {/* Mobile: Login Card in flow with increased top margin (mt-16) */}
+        <div className="md:hidden mt-16 mb-4">
           <LoginCard />
         </div>
 
