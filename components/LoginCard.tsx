@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react';
 
 export const LoginCard: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`bg-white rounded-[32px] px-8 pb-8 pt-0 shadow-[0_20px_40px_rgba(0,0,0,0.08)] w-full md:w-[320px] flex flex-col h-[280px] relative overflow-visible ${className}`}>
+    <div className={`bg-white rounded-[32px] px-8 pb-8 pt-10 shadow-[0_20px_40px_rgba(0,0,0,0.08)] w-full md:w-[320px] flex flex-col h-[300px] relative overflow-visible ${className}`}>
        
        {/* 3D Icon - Reduced size from w-28 to w-24 */}
        <div className="absolute -top-12 -right-6 transform rotate-6 pointer-events-none animate-bounce-slow z-20">
