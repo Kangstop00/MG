@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MG새마을금고보험</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (Using CDN for simplicity as per existing setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -26,7 +26,7 @@
             },
             fontFamily: {
               sans: ['SUIT', 'sans-serif'],
-              eng: ['Jost', 'sans-serif'], // Jost is an excellent free alternative to Futura
+              eng: ['Jost', 'sans-serif'],
             },
             boxShadow: {
               'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
@@ -131,19 +131,19 @@
   <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
   }
 }
 </script>
-<!-- Babel for on-the-fly JSX compilation -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
   <body>
     <div id="root"></div>
-    <!-- Changed to text/babel with data-type="module" to support imports and JSX -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+    <!-- Changed to standard module script for Vite -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
